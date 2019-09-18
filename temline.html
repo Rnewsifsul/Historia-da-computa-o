@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <script  src="./script.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    
+ <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    
+        *{
+            margin: 0;
+            padding: 0;
+        }
+.timeline {
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-width: 700px;
+  position: relative;
+}
+.timeline__content-title {
+  font-weight: normal;
+  font-size: 66px;
+  margin: -10px 0 0 0;
+  transition: 0.4s;
+  padding: 0 10px;
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+  color: #fff;
+}
+.timeline__content-desc {
+  margin: 0;
+  font-size: 15px;
+  box-sizing: border-box;
+  color: #ffffffb3;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: normal;
+  line-height: 25px;
+}
+.timeline:before {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  margin-left: -1px;
+  content: "";
+  background: rgba(255, 255, 255, .07);
+}
+@media only screen and (max-width: 767px) {
+  .timeline:before {
+    left: 40px;
+  }
+}
+.timeline-item {
+  padding: 40px 0;
+  opacity: 0.3;
+  filter: blur(2px);
+  transition: 0.5s;
+  box-sizing: border-box;
+  width: calc(50% - 40px);
+  display: flex;
+  position: relative;
+  transform: translateY(-80px);
+}
+.timeline-item:before {
+  content: attr(data-text);
+  letter-spacing: 3px;
+  width: 100%;
+  position: absolute;
+  color: rgba(255, 255, 255, .5);
+  font-size: 13px;
+  font-family: 'Pathway Gothic One', sans-serif;
+  border-left: 2px solid rgba(255, 0, 0, 0.5);
+  top: 70%;
+  margin-top: -5px;
+  padding-left: 15px;
+  opacity: 0;
+  right: calc(-100% - 56px);
+}
+.timeline-item:nth-child(even) {
+  align-self: flex-end;
+}
+.timeline-item:nth-child(even):before {
+  right: auto;
+  text-align: right;
+  left: calc(-100% - 56px);
+  padding-left: 0;
+  border-left: none;
+  border-right: 2px solid rgba(255, 255, 255, .5);
+  padding-right: 15px;
+}
+.timeline-item--active {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px);
+}
+.timeline-item--active:before {
+  top: 50%;
+  transition: 0.3s all 0.2s;
+  opacity: 1;
+}
+.timeline-item--active .timeline__content-title {
+  margin: -50px 0 20px 0;
+}
+@media only screen and (max-width: 767px) {
+  .timeline-item {
+    align-self: baseline !important;
+    width: 100%;
+    padding: 0 30px 150px 80px;
+  }
+  .timeline-item:before {
+    left: 10px !important;
+    padding: 0 !important;
+    top: 50px;
+    text-align: center !important;
+    width: 60px;
+    border: none !important;
+  }
+  .timeline-item:last-child {
+    padding-bottom: 40px;
+  }
+}
+.timeline__img {
+  max-width: 100%;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, .4);
+}
+.timeline2__img {
+  margin-top: 100px;
+  max-width: 100%;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, .4);
+}
+
+.timeline-container {
+  width: 100%;
+  position: relative;
+  padding: 80px 0;
+  transition: 0.3s ease 0s;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.timeline-container:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+ background: rgba(0,0,0,0.6);
+  content: "";
+}
+.timeline-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 80px;
+  position: relative;
+}
+.timeline-header__title {
+  color: #fff;
+  font-size: 58px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: normal;
+  margin: 0;
+}
+.timeline-header__subtitle {
+  color: rgba(255, 255, 255, .5);
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 16px;
+  letter-spacing: 5px;
+  margin: 10px 0 0 0;
+  font-weight: normal;
+}
+.demo-footer {
+  padding: 60px 0;
+  text-align: center;
+}
+.demo-footer a {
+  color: #999;
+  display: inline-block;
+  font-family: Cardo;
+}
+.btn1{
+  position: relative;
+  margin-top: -30px;
+  width: 300px;
+}
+
+.btn:focus, .btn::-moz-focus-inner{
+    outline:none;
+    border:none;
+  }
+  .btn1{
+    font-family: arial;
+    font-size:14px;
+    text-transform: uppercase;
+    font-weight:700;
+     border-radius: 10px;
+     border:none;
+    padding:10px;
+    cursor: pointer;
+    display:inline-block;
+    text-decoration: none;
+  }
+  .btn-gree{
+    background:rgb(241, 4, 4);
+    color:#fff;
+    box-shadow:0 5px 0 #990404;
+  }
+  .btn-gree:hover{
+    background:#c50303;
+    box-shadow:0 5px 0 #770101;
+    color: floralwhite;
+    text-decoration: none;
+  }
+  .btn-gree:active, .btn-purple:active, .btn-red:active{
+    position:relative;
+    top:5px;
+    box-shadow:none;
+  }
+  /* segundo botão */
+  .btn{
+    font-family: arial;
+    font-size:14px;
+    text-transform: uppercase;
+    font-weight:700;
+     border-radius: 10px;
+     border:none;
+    padding:10px;
+    cursor: pointer;
+    display:inline-block;
+    text-decoration: none;
+  }
+  .btn{
+  position: relative;
+  margin-top: -30px;
+  width: 300px;
+  left: 0em;
+}
+    </style>
+</head>
+<body>
+     <div class="timeline-container" id="timeline-1">
+  <div class="timeline-header">
+    <h2 class="timeline-header__title">Historia da Computação</h2>
+    <h3 class="timeline-header__subtitle">Linha do tempo</h3>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item" data-text="Primeiro Computador do mundo">
+      <div class="timeline__content"><img class="timeline__img" src="u.jpg" />
+        <h2 class="timeline__content-title">1830</h2>
+        <p class="timeline__content-desc">ENIAC era um monstrengo de 30 toneladas de peso que ocupava uma área de 180 m² de área construída. Sua produção custou nada menos do que US$ 500 mil na época, o que hoje representaria aproximadamente US$ 6 milhões e a máquina contava com um hardware com 70 mil resístores e 18 mil válvulas de vácuo que em funcionamento consumiam vorazmente 200 mil watts de energia.</p>
+     
+ <br>
+   <input type="button" id="bexemplo2" class="btn1 btn-gree" value="Mostar"onclick="aparecer('exemplo2');">
+   <br> <br>
+    <p id="exemplo2" style="display: none; color: #ffffffb3;font-family: 'Roboto Condensed', sans-serif;"> Já seu “sistema operacional” eram cartões perfurados que eram operados por um time de funcionárias do exército – o que de quebra as classifica como as primeiras programadoras que se tem notícia. Sua construção de iniciou em plena guerra, em 1943, e apesar de ser mostrado em 46 só foi ser ligado pela primeira vez em julho de 47.
+
+      Apesar de ter uma capacidade de operação menor do que qualquer calculadora de mão moderna, durante seus 10 anos de operação o ENIAC “realizou mais contas do que toda humanidade já havia feito em sua história”. No final de sua carreira, um concorrente com o dobro da capacidade custava o equivalente a US$ 200 mil e tinha apenas 10% de seu tamanho.
+      
+      Ao sair de cena o ENIAC foi desmontado e diversas de suas peças estão em exposição pelo mundo. Os computadores ainda ficaram exclusivamente nas mãos de empresas e órgãos governamentais até o final da década de 70, quando a computação doméstica começou a dar seus primeiros passos. Mas isso é outra história.
+    </p>
+ </div>
+    </div>
+
+    <div class="timeline-item" data-text="NEW TIMELINE DESIGN">
+      <div class="timeline__content"><img class="timeline__img" src="r.jpg"/>
+        <h2 class="timeline__content-title" style="font-size: 50px"> 981 a.C</h2>
+        <p class="timeline__content-desc">O genial matemático Gottfried Leibniz (1646-1716) não foi o primeiro a inventar o sistema binário atualmente utilizado por nossos computadores e telefones. Os nativos da Mangareva, uma pequena ilha da Polinésia, se anteciparam a ele em vários séculos. Os mangarevenses não tinham a menor intenção de inventar a informática, mas se deram conta de que o sistema decimal herdado de seus ancestrais – como o nosso – acabava sendo muito inconveniente para fazer os cálculos no mercado, e a ele acrescentaram um sistema binário que facilita muito as operações aritméticas mais comuns. Também Leibniz argumentou que seu sistema binário servia para simplificar as contas, mas ninguém lhe deu ouvidos.</p>
+    <br>
+
+    <input type="button" id="bexemplo3" class="btn1 btn-gree" value="Mostar"onclick="aparecer('exemplo3');"><br> <br>
+    <p id="exemplo3" style="display: none; color: #ffffffb3;">
+      Não se trata do primeiro sistema binário conhecido da era pré-Leibniz – os próprios hexagramas do I-Ching que inspiraram o grande matemático alemão constituem um sistema binário e têm quase 3.000 anos –, mas Andrea Bender e Sieghard Beller, do departamento de ciência psicossocial da Universidade de Bergen, na Noruega, mostram agora como os habitantes da Mangareva não só inventaram o sistema para contar peixes, frutas, cocos, polvos e outros bens de diferente valor em suas transações comerciais, como também que isso conduziu a uma aritmética binária que teria merecido a aprovação do Leibniz por sua simplicidade e naturalidade.
+    </p>
+  </div>
+    </div>
+
+    <div class="timeline-item" data-text="NEW TIMELINE DESIGN">
+      <div class="timeline__content"><img class="timeline__img" src="http://www.dicasparacomputador.com/files/u3/primeiro-hd-ibm-1956.jpg"/>
+        <h2 class="timeline__content-title">1905</h2>
+        <p class="timeline__content-desc">In 1905, Mustafa Kemal graduated from the War Academy in Istanbul with the rank of Staff Captain. Posted in Damascus, he started with several colleagues, a clandestinesociety called "Homeland and Freedom" to fight against the Sultan'sdespotism.</p>
+          
+ <br>
+ <input type="button" id="bexemplo4" class="btn1 btn-gree" value="Mostar"onclick="aparecer('exemplo4');"><br> <br>
+        <p id="exemplo4" style="display: none; color: #ffffffb3;font-family: 'Roboto Condensed', sans-serif;">Quisque vel accumsan mauris, et finibus augue. In tincidunt felis at sapien auctor, non molestie
+            lorem blandit. Phasellus orci mi, pharetra et tortor ac, ultrices venenatis lacus. Donec eleifend purus nulla,
+            ac vestibulum dolor venenatis sit amet.
+        </p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="NEW TIMELINE DESIGN">
+      <div class="timeline__content"><img class="timeline__img" src="http://3.bp.blogspot.com/-quVtMlHr-pA/Tnd6xB9ej6I/AAAAAAAAB2I/j6wrEr2GvSQ/s1600/primeirohd.jpg"/>
+        <h2 class="timeline__content-title">1908</h2>
+        <p class="timeline__content-desc">In 1908 he helped the group of officers who toppled the Sultan. Mustafa Kemal'scareer flourished as he won his heroism in the far corners of the Ottoman Empire,including Albania and Tripoli. He also briefly served as a staff officer in Salonica andIstanbul and as a military attache in Sofia.</p>
+       <br>
+       <input type="button"  id="bexemplo5" class="btn1 btn-gree" value="Mostar"onclick="aparecer('exemplo5');"><br> <br>
+        <p id="exemplo5" style="display: none; color: #ffffffb3;font-family: 'Roboto Condensed', sans-serif;">Quisque vel accumsan mauris, et finibus augue. In tincidunt felis at sapien auctor, non molestie
+            lorem blandit. Phasellus orci mi, pharetra et tortor ac, ultrices venenatis lacus. Donec eleifend purus nulla,
+            ac vestibulum dolor venenatis sit amet.
+        </p>
+     
+      </div>
+    </div>
+    <div class="timeline-item" data-text="NEW TIMELINE DESIGN">
+      <div class="timeline__content"><img class="timeline__img" src="https://sites.google.com/site/sitesrecord/_/rsrc/1468737147609/o-que-e-arpanet/very_old_computer.jpg"/>
+        <h2 class="timeline__content-title">1915</h2>
+        <p class="timeline__content-desc">In 1915, when Dardanelles campaign was launched, Colonel Mustafa Kemal became anational hero by winning successive victories and finally repelling the invaders.</p>
+        <br>
+        <input type="button" id="bexemplo6" class="btn1 btn-gree" value="Mostar"onclick="aparecer('exemplo6');"><br> <br>
+        <p id="exemplo6" style="display: none; color: #ffffffb3;font-family: 'Roboto Condensed', sans-serif;">Quisque vel accumsan mauris, et finibus augue. In tincidunt felis at sapien auctor, non molestie
+            lorem blandit. Phasellus orci mi, pharetra et tortor ac, ultrices venenatis lacus. Donec eleifend purus nulla,
+            ac vestibulum dolor venenatis sit amet.
+        </p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="NEW TIMELINE DESIGN">
+      <div class="timeline__content"><img class="timeline__img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_wBFGR1VmFlDpR5zsBJlKds8jkQ_Qzh4SJnVvvkhd5vXiBMg3"/>
+        <h2 class="timeline__content-title">1916</h2>
+        <p class="timeline__content-desc">Promotedto general in 1916, at age 35, he liberated two major provinces in eastern Turkey thatyear. In the next two years, he served as commander of several Ottoman armies inPalestine, Aleppo, and elsewhere, achieving another major victory by stopping the enemyadvance at Aleppo.</p>
+        <br>
+        <input type="button" id="bexemplo7" class="btn1 btn-gree" value="Mostar"onclick="aparecer('exemplo7');"><br> <br>
+        <p id="exemplo7" style="display: none; color: #ffffffb3;font-family: 'Roboto Condensed', sans-serif;">Quisque vel accumsan mauris, et finibus augue. In tincidunt felis at sapien auctor, non molestie
+            lorem blandit. Phasellus orci mi, pharetra et tortor ac, ultrices venenatis lacus. Donec eleifend purus nulla,
+            ac vestibulum dolor venenatis sit amet.
+        </p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="NEW TIMELINE DESIGN">
+      <div class="timeline__content"><img class="timeline__img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSunM5r75dOlbyqZpJ9wG6iS0EtyImvwwkXgaseWjR7UEy920XS"/>
+        <h2 class="timeline__content-title">1919</h2>
+        <p class="timeline__content-desc">On May 19, 1919, Mustafa Kemal Pasha landed in the Black Sea port of Samsun to startthe War of Independence. In defiance of the Sultan's government, he rallied a liberationarmy in Anatolia and convened the Congress of Erzurum and Sivas which established thebasis for the new national effort under his leadership.</p>
+        <br>
+        <input type="button" id="bexemplo8" class="btn1 btn-gree" value="Mostar"onclick="aparecer('exemplo8');"><br> <br>
+    <p id="exemplo8" style="display: none; color: #ffffffb3;font-family: 'Roboto Condensed', sans-serif;">Quisque vel accumsan mauris, et finibus augue. In tincidunt felis at sapien auctor, non molestie
+        lorem blandit. Phasellus orci mi, pharetra et tortor ac, ultrices venenatis lacus. Donec eleifend purus nulla,
+        ac vestibulum dolor venenatis sit amet.
+    </p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="NEW TIMELINE DESIGN">
+      <div class="timeline__content"><img class="timeline__img" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0e/ViolaWWW.png/300px-ViolaWWW.png"/>
+        <h2 class="timeline__content-title">1920</h2>
+        <p class="timeline__content-desc">
+          On April 23, 1920, the GrandNational Assembly was inaugurated. Mustafa Kemal Pasha was elected to its Presidency.
+          Fighting on many fronts, he led his forces to victory against rebels and invadingarmies. Following the Turkish triumph at the two major battles at Inonu in Western Turkey,the Grand National Assembly conferred on Mustafa Kemal Pasha the title ofCommander-in-Chief with the rank of Marshal.
+        </p>
+        <br>
+        <input type="button" id="bma" class="btn1 btn-gree" value="Mostar"onclick="aparecer('exemplo9');"><br> <br>
+    <p id="exemplo9" style="display: none; color: #ffffffb3;font-family: 'Roboto Condensed', sans-serif;">Quisque vel accumsan mauris, et finibus augue. In tincidunt felis at sapien auctor, non molestie
+        lorem blandit. Phasellus orci mi, pharetra et tortor ac, ultrices venenatis lacus. Donec eleifend purus nulla,
+        ac vestibulum dolor venenatis sit amet.
+    </p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="NEW TIMELINE DESIGN">
+      <div class="timeline__content"><img class="timeline__img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWwa1Y_qNMloY2SgDImYfnpLquVVfzowp77xaG8ENEMPIs33hR"/>
+        <h2 class="timeline__content-title">1922</h2>
+        <p class="timeline__content-desc">At the end of August 1922, the Turkish armieswon their ultimate victory. Within a few weeks, the Turkish mainland was completelyliberated, the armistice signed, and the rule of the Ottoman dynasty abolished</p>
+        <br>
+        <input type="button" id="bexemplo10" class="btn1 btn-gree" id="b" value="Mostrar"onclick="aparecer('exemplo10');">
+        <br>
+        <br>
+        <p id="exemplo10" style="display: none; color: #ffffffb3;font-family: 'Roboto Condensed', sans-serif;">Quisque vel accumsan mauris, et finibus augue. In tincidunt felis at sapien auctor, non molestie
+            lorem blandit. Phasellus orci mi, pharetra et tortor ac, ultrices venenatis lacus. Donec eleifend purus nulla,
+            ac vestibulum dolor venenatis sit amet.
+        </p>
+      </div>
+    </div>
+  
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+    
+    (function($) {
+  $.fn.timeline = function() {
+    var selectors = {
+      id: $(this),
+      item: $(this).find(".timeline-item"),
+      activeClass: "timeline-item--active",
+      img: ".timeline__img,.timeline2__img"
+    };
+    selectors.item.eq(0).addClass(selectors.activeClass);
+    selectors.id.css(
+      "background-image",
+      "url(" +
+        selectors.item
+          .first()
+          .find(selectors.img)
+          .attr("src") +
+        ")"
+    );
+    var itemLength = selectors.item.length;
+    $(window).scroll(function() {
+      var max, min;
+      var pos = $(this).scrollTop();
+      selectors.item.each(function(i) {
+        min = $(this).offset().top;
+        max = $(this).height() + $(this).offset().top;
+        var that = $(this);
+        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+          selectors.item.removeClass(selectors.activeClass);
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              selectors.item
+                .last()
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.last().addClass(selectors.activeClass);
+        } else if (pos <= max - 40 && pos >= min) {
+          selectors.id.css(
+            "background-image",
+            "url(" +
+              $(this)
+                .find(selectors.img)
+                .attr("src") +
+              ")"
+          );
+          selectors.item.removeClass(selectors.activeClass);
+          $(this).addClass(selectors.activeClass);
+        }
+      });
+    });
+  };
+})(jQuery);
+
+$("#timeline-1").timeline();
+
+    </script>
+
+    
+<script>
+  function aparecer(novoid) {
+    console.log('')
+    if(document.getElementById(novoid).style.display == "none") {
+      document.getElementById(novoid).style.display = "block";
+      document.getElementById('b'+novoid).value="Ocultar Conteudo";
+    } else if(document.getElementById(novoid).style.display == "block") {
+      document.getElementById(novoid).style.display = "none";
+      document.getElementById('b'+novoid).value="Mostrar Conteudo";
+    }
+  }
+</script>
+
+    
+</body>
+</html>
